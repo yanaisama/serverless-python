@@ -24,7 +24,7 @@ def get_all():
         return {
             "statusCode": 200,
             "body": json.dumps({
-                "message": "hello world python",
+                "message": "hello world python yanai",
                 # "location": ip.text.replace("\n", "")
             }),
         }
