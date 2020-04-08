@@ -1,11 +1,15 @@
 import json
 import os
 import boto3
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.core import patch_all
+
+patch_all()
 
 # import requests
 session = boto3.Session()
 dynamodb = session.resource("dynamodb")
-table_name = os.getenv("SAMPLE_TABLE", "undefined")
+table_name = os.environ["SAMPLE_TABLE"]
 table = dynamodb.Table(table_name)
 
 _cold_start = True
